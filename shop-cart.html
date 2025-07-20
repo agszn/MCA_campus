@@ -23,177 +23,210 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+<style>
+    html, body {
+        overflow: hidden;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background: #FFDAB9; /* Peach background */
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .mobile-bottom-link {
+        text-decoration: none;
+        color: #8B4513; /* SaddleBrown text/icons */
+        text-align: center;
+        font-size: 12px;
+        flex: 1;
+        position: relative;
+    }
+
+    .mobile-bottom-icon {
+        font-size: 22px;
+        display: block;
+    }
+
+    /* Tooltip label on hover */
+    .mobile-bottom-link::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #f0b28c; /* Darker peach for tooltip */
+        color: #fff;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .mobile-bottom-link:hover::after {
+        opacity: 1;
+    }
+
+    @media (min-width: 600px) {
+        .mobile-bottom-nav {
+            bottom: 20px;
+        }
+    }
+</style>
+
+
 </head>
-
 <body>
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__close">+</div>
-        <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-        </ul>
-        <div class="offcanvas__logo">
-            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+
+<!-- Shop Cart Section Begin -->
+<section class="product-details spad">
+  <div class="container">
+    <h3 class="mb-4 text-center text-md-left">Shopping Cart</h3>
+
+    <!-- Cart Item Start -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <!-- Product Info -->
+        <div class="d-flex align-items-center mb-3 mb-md-0">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.keEAmKUNtskvdPk6TGMiCQHaJu?rs=1&pid=ImgDetMain&o=7&rm=3"
+               alt="Product" class="img-thumbnail mr-3" style="width: 80px; height: auto;">
+          <div>
+            <h6 class="mb-1">Designing ML Systems</h6>
+            <div class="rating text-warning small">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i>
+              <i class="fa fa-star"></i><i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+          </div>
         </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+
+        <!-- Price & Quantity -->
+        <div class="text-center text-md-left mb-2 mb-md-0">
+          <div><strong>Price:</strong> ₹ 5900.00</div>
+          <div class="mt-1 d-flex align-items-center justify-content-center">
+            <label for="qty1" class="mr-2 mb-0">Qty:</label>
+            <input type="number" id="qty1" class="form-control form-control-sm" style="width: 70px;" value="1" min="1">
+          </div>
         </div>
+
+        <!-- Total & Remove -->
+        <div class="text-center text-md-left">
+          <div><strong>Total:</strong> ₹ 5900.00</div>
+          <button class="btn btn-outline-danger btn-sm mt-2">
+            <i class="fa fa-times"></i> Remove
+          </button>
+        </div>
+      </div>
     </div>
-    <!-- Offcanvas Menu End -->
+    <!-- Cart Item End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html" class="navbar-brand d-flex align-items-center">
-                            <i class="fas fa-exchange-alt me-2 text-primary"></i>
-                            <span class="fw-bold fs-4 text-uppercase text-gradient">CAmpus Swap</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-7">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./product-details.html">Product Details</a></li>
-                                    <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                    <li><a href="./checkout.html">Checkout</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./terms.html">Terms</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="./login.html">Login</a>
-                            <a href="./register.html">Register</a>
-                        </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
+    <!-- Actions -->
+    <div class="row mt-4">
 
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 20px;">
+    <a href="#" style="
+        background-color: #ffb380;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1rem;
+        max-width: 90%;
+        width: fit-content;
+        text-align: center;
+        flex-wrap: wrap;">
+        <span class="fa fa-arrow-right" style="margin-right: 8px;"></span> Continue Shopping
 
+        </a>
+      </div>
 
-    <!-- Breadcrumb Begin -->
-    <div class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                        <span>Shopping cart</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 20px;">
+    <a href="#" style="
+        background-color: #ffb380;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1rem;
+        max-width: 90%;
+        width: fit-content;
+        text-align: center;
+        flex-wrap: wrap;">
+        <span class="icon_creditcard" style="margin-right: 8px;"></span> Proceed to Checkout
+    </a>
     </div>
-    <!-- Breadcrumb End -->
 
-    <!-- Shop Cart Section Begin -->
-    <section class="shop-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shop__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="cart__product__item">
-                                        <img src="https://tse4.mm.bing.net/th/id/OIP.keEAmKUNtskvdPk6TGMiCQHaJu?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" width="30%" height="30%">
-                                        <div class="cart__product__item__title">
-                                            <h6>Designing ML Systems</h6>
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">₹ 5900.0</td>
-                                    <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="cart__total">₹ 5900.0</td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn">
-                        <a href="#">Continue Shopping</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn update__btn">
-                        <a href="#"><span class="icon_loading"></span> Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Shop Cart Section End -->
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/main.js"></script>
+    </div>
+  </div>
+</section>
+<!-- Shop Cart Section End -->
+
+
+<!-- Bottom Navigation -->
+<div class="mobile-bottom-nav">
+    <a href="index.html" class="mobile-bottom-link" data-label="Home">
+        <i class="icon_house_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="about.html" class="mobile-bottom-link" data-label="About">
+        <i class="icon_info_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="product-details.html" class="mobile-bottom-link" data-label="Product">
+        <i class="icon_box-checked mobile-bottom-icon"></i>
+    </a>
+    <a href="shop-cart.html" class="mobile-bottom-link" data-label="Cart">
+        <i class="icon_cart_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="checkout.html" class="mobile-bottom-link" data-label="Checkout">
+        <i class="icon_creditcard mobile-bottom-icon"></i>
+    </a>
+    <a href="terms.html" class="mobile-bottom-link" data-label="Terms">
+        <i class="icon_document_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="contact.html" class="mobile-bottom-link" data-label="Contact">
+        <i class="icon_mail_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="login.html" class="mobile-bottom-link" data-label="Login">
+        <i class="icon_lock_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="register.html" class="mobile-bottom-link" data-label="Register">
+        <i class="icon_profile mobile-bottom-icon"></i>
+    </a>
+</div>
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<!-- <script src="js/jquery.slicknav.js"></script> -->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/main.js"></script>
 </body>
-
 </html>

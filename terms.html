@@ -23,88 +23,77 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+<style>
+    html, body {
+        overflow: hidden;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background: #FFDAB9; /* Peach background */
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .mobile-bottom-link {
+        text-decoration: none;
+        color: #8B4513; /* SaddleBrown text/icons */
+        text-align: center;
+        font-size: 12px;
+        flex: 1;
+        position: relative;
+    }
+
+    .mobile-bottom-icon {
+        font-size: 22px;
+        display: block;
+    }
+
+    /* Tooltip label on hover */
+    .mobile-bottom-link::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #f0b28c; /* Darker peach for tooltip */
+        color: #fff;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .mobile-bottom-link:hover::after {
+        opacity: 1;
+    }
+
+    @media (min-width: 600px) {
+        .mobile-bottom-nav {
+            bottom: 20px;
+        }
+    }
+</style>
+
+
 </head>
-
 <body>
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__close">+</div>
-        <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-        </ul>
-        <div class="offcanvas__logo">
-            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
-
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html" class="navbar-brand d-flex align-items-center">
-                            <i class="fas fa-exchange-alt me-2 text-primary"></i>
-                            <span class="fw-bold fs-4 text-uppercase text-gradient">CAmpus Swap</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-7">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./product-details.html">Product Details</a></li>
-                                    <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                    <li><a href="./checkout.html">Checkout</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./terms.html">Terms</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="./login.html">Login</a>
-                            <a href="./register.html">Register</a>
-                        </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
 
 
     <div class="container mt-5">
@@ -112,10 +101,8 @@
         <p>Welcome to Campus Swap. By accessing or using our platform, you agree to the following terms:</p>
 
         <h4>1. User Responsibilities</h4>
-        <ul>
-            <li>Provide accurate personal and product information.</li>
-            <li>Do not upload illegal or harmful content.</li>
-        </ul>
+        <p>Provide accurate personal and product information.</p>
+        <p>Do not upload illegal or harmful content.</p>
 
         <h4>2. Payments</h4>
         <p>All payments are processed through verified UPI transactions using QR codes. We are not liable for unauthorized payments.</p>
@@ -126,14 +113,46 @@
         <h4>4. Account Termination</h4>
         <p>We reserve the right to suspend or terminate accounts that violate these terms.</p>
     </div>
-<!-- Js Plugins -->
+
+<!-- Bottom Navigation -->
+<div class="mobile-bottom-nav">
+    <a href="index.html" class="mobile-bottom-link" data-label="Home">
+        <i class="icon_house_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="about.html" class="mobile-bottom-link" data-label="About">
+        <i class="icon_info_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="product-details.html" class="mobile-bottom-link" data-label="Product">
+        <i class="icon_box-checked mobile-bottom-icon"></i>
+    </a>
+    <a href="shop-cart.html" class="mobile-bottom-link" data-label="Cart">
+        <i class="icon_cart_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="checkout.html" class="mobile-bottom-link" data-label="Checkout">
+        <i class="icon_creditcard mobile-bottom-icon"></i>
+    </a>
+    <a href="terms.html" class="mobile-bottom-link" data-label="Terms">
+        <i class="icon_document_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="contact.html" class="mobile-bottom-link" data-label="Contact">
+        <i class="icon_mail_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="login.html" class="mobile-bottom-link" data-label="Login">
+        <i class="icon_lock_alt mobile-bottom-icon"></i>
+    </a>
+    <a href="register.html" class="mobile-bottom-link" data-label="Register">
+        <i class="icon_profile mobile-bottom-icon"></i>
+    </a>
+</div>
+
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/mixitup.min.js"></script>
 <script src="js/jquery.countdown.min.js"></script>
-<script src="js/jquery.slicknav.js"></script>
+<!-- <script src="js/jquery.slicknav.js"></script> -->
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.nicescroll.min.js"></script>
 <script src="js/main.js"></script>
